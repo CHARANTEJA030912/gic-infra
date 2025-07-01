@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 .App-logo {
@@ -35,4 +38,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Add styles for main content wrapper */
+.content-wrapper {
+  min-height: 100vh;
+  padding-bottom: 0;
+  position: relative;
+  width: 100%;
 }
