@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css"; // Link to external CSS
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenuToggle = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
+  const getLinkClass = ({ isActive }) =>
+    isActive ? "nav-item active" : "nav-item";
 
   return (
     <nav className="custom-navbar">
@@ -13,11 +17,11 @@ function Navbar() {
 
         {/* Desktop Nav */}
         <div className="nav-links">
-          <Link to="/" className="nav-item">Home</Link>
-          <Link to="/about" className="nav-item">About</Link>
-          <Link to="/services" className="nav-item">Services</Link>
-          <Link to="/projects" className="nav-item">Projects</Link>
-          <Link to="/contact" className="nav-item">Contact</Link>
+          <NavLink to="/" className={getLinkClass}>Home</NavLink>
+          <NavLink to="/about" className={getLinkClass}>About</NavLink>
+          <NavLink to="/services" className={getLinkClass}>Services</NavLink>
+          <NavLink to="/projects" className={getLinkClass}>Projects</NavLink>
+          <NavLink to="/contact" className={getLinkClass}>Contact</NavLink>
         </div>
 
         {/* Hamburger */}
@@ -31,11 +35,11 @@ function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="mobile-menu">
-          <Link to="/" className="mobile-item" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" className="mobile-item" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link to="/services" className="mobile-item" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link to="/projects" className="mobile-item" onClick={() => setMenuOpen(false)}>Projects</Link>
-          <Link to="/contact" className="mobile-item" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <NavLink to="/" className="mobile-item" onClick={closeMenu}>Home</NavLink>
+          <NavLink to="/about" className="mobile-item" onClick={closeMenu}>About</NavLink>
+          <NavLink to="/services" className="mobile-item" onClick={closeMenu}>Services</NavLink>
+          <NavLink to="/projects" className="mobile-item" onClick={closeMenu}>Projects</NavLink>
+          <NavLink to="/contact" className="mobile-item" onClick={closeMenu}>Contact</NavLink>
         </div>
       )}
     </nav>

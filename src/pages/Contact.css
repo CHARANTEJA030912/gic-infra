@@ -18,6 +18,7 @@
   max-width: 1200px;
   width: 100%;
   margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .contact-card {
@@ -135,6 +136,24 @@
 .contact-button:active {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+.contact-button:disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(156, 163, 175, 0.2);
+}
+
+.contact-button:disabled:hover {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  transform: none;
+  box-shadow: 0 2px 4px rgba(156, 163, 175, 0.2);
+}
+
+.contact-button:disabled:active {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(156, 163, 175, 0.2);
 }
 
 .contact-button:disabled {
